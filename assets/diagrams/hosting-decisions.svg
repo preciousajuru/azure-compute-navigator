@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="590" viewBox="0 0 760 590" role="img" aria-labelledby="title description">
+  <title id="title">Start with the workload, not the service name</title>
+  <desc id="description">Static content suggests a static host. HTTP applications suggest App Service or Container Apps. Events suggest Functions or Container Apps apps and jobs. Kubernetes dependencies suggest AKS Automatic or Standard. Verified guest operating system requirements suggest Virtual Machines. These starting points can be combined.</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 8 4 0 8" fill="#0067c0"/></marker></defs>
+  <rect width="760" height="590" rx="4" fill="#f5f6f8"/>
+  <g font-family="Segoe UI, Arial, sans-serif" fill="#20252c">
+    <text x="28" y="38" font-size="22" font-weight="600">Start with the workload</text>
+    <text x="28" y="66" font-size="16" fill="#4a5564">Requirements create a shortlist. They do not complete the architecture.</text>
+    <g fill="#ffffff" stroke="#c6ced8">
+      <rect x="28" y="95" width="295" height="70" rx="3"/><rect x="407" y="95" width="325" height="70" rx="3"/>
+      <rect x="28" y="185" width="295" height="70" rx="3"/><rect x="407" y="185" width="325" height="70" rx="3"/>
+      <rect x="28" y="275" width="295" height="70" rx="3"/><rect x="407" y="275" width="325" height="70" rx="3"/>
+      <rect x="28" y="365" width="295" height="70" rx="3"/><rect x="407" y="365" width="325" height="70" rx="3"/>
+      <rect x="28" y="455" width="295" height="70" rx="3"/><rect x="407" y="455" width="325" height="70" rx="3"/>
+    </g>
+    <g stroke="#0067c0" stroke-width="2" marker-end="url(#arrow)">
+      <path d="M323 130h75"/><path d="M323 220h75"/><path d="M323 310h75"/><path d="M323 400h75"/><path d="M323 490h75"/>
+    </g>
+    <g font-size="18" font-weight="600">
+      <text x="44" y="123">Static content</text><text x="425" y="123">Static Web Apps / static host</text>
+      <text x="44" y="213">HTTP application or API</text><text x="425" y="213">App Service / Container Apps</text>
+      <text x="44" y="303">Events and finite work</text><text x="425" y="303">Functions / Container Apps</text>
+      <text x="44" y="393">Kubernetes dependencies</text><text x="425" y="393">AKS Automatic / Standard</text>
+      <text x="44" y="483">Required guest-OS control</text><text x="425" y="483">Azure Virtual Machines</text>
+    </g>
+    <g font-size="15" fill="#4a5564">
+      <text x="44" y="148">No server process required</text><text x="425" y="148">Choose the backend separately</text>
+      <text x="44" y="238">Web runtime or container</text><text x="425" y="238">Compare deployment and scaling</text>
+      <text x="44" y="328">Queue, schedule or batch</text><text x="425" y="328">Distinguish a worker from a job</text>
+      <text x="44" y="418">API, operator or platform integration</text><text x="425" y="418">Check the exact supported features</text>
+      <text x="44" y="508">A verified server-level dependency</text><text x="425" y="508">Account for OS operations</text>
+      <text x="28" y="560">For every path: state, networking, identity, availability, recovery and cost.</text>
+    </g>
+  </g>
+</svg>

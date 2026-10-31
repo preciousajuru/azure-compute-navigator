@@ -1,0 +1,36 @@
+name: Architectural guidance correction
+description: Report a recommendation or service description that may be inaccurate or outdated.
+title: "[Correction]: "
+labels:
+  - documentation
+body:
+  - type: input
+    id: service
+    attributes:
+      label: Service or recommendation
+      description: Which service description, article passage, or decision rule needs review?
+      placeholder: "For example, Container Apps networking"
+    validations:
+      required: true
+  - type: textarea
+    id: scenario
+    attributes:
+      label: Scenario and concern
+      description: Explain what appears inaccurate, incomplete, or too broad. Do not include credentials, tenant IDs, or customer data.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Authoritative source
+      description: Link the current Microsoft documentation or official service guidance.
+      placeholder: "https://learn.microsoft.com/..."
+    validations:
+      required: true
+  - type: input
+    id: context
+    attributes:
+      label: Region, plan, or quota context
+      description: Include only the context that affects the claim; write “Not applicable” if none.
+    validations:
+      required: false

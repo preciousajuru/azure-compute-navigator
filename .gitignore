@@ -1,0 +1,11 @@
+node_modules/
+_site/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.log
+.DS_Store
+Thumbs.db

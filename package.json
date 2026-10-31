@@ -1,0 +1,21 @@
+{
+  "name": "azure-compute-navigator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "An independent educational guide to choosing Azure application hosting services.",
+  "author": "Precious Ajuru",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check src/app.js && node --check src/theme.js && node --check src/logic/recommendations.js && node --check src/data/services.js && node --check src/data/questions.js && node --check scripts/build.mjs && node --check scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/serve.mjs"
+  },
+  "devDependencies": {
+    "marked": "18.1.2"
+  }
+}

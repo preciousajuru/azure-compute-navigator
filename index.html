@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en-GB" data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f6f8">
+    <meta name="author" content="Precious Ajuru">
+    <meta name="description" content="An independent, interactive guide to choosing Azure application hosting, assessing migration dependencies, and comparing workload requirements.">
+    <title>Azure Compute Navigator | Architecture workbench</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%230067c0'/%3E%3Cpath d='M9 10h14M9 22h14M9 10v12' stroke='white' stroke-width='2'/%3E%3Cpath d='M6 7h6v6H6zM20 7h6v6h-6zM20 19h6v6h-6z' fill='white'/%3E%3C/svg%3E">
+    <script src="./src/theme.js"></script>
+    <link rel="stylesheet" href="./src/styles.css">
+    <script type="module" src="./src/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to workspace</a>
+    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="icon-map" viewBox="0 0 24 24"><path d="M5 6h14M5 6v12h14"/><path d="M2 3h6v6H2zM16 3h6v6h-6zM16 15h6v6h-6z"/></symbol>
+      <symbol id="icon-assess" viewBox="0 0 24 24"><path d="M9 5h12M9 12h12M9 19h12M2 5l1 1 3-3M2 12l1 1 3-3M2 19l1 1 3-3"/></symbol>
+      <symbol id="icon-web" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M6 6.5h1M9 6.5h1M8 13l-2 2 2 2M16 13l2 2-2 2M13 12l-2 6"/></symbol>
+      <symbol id="icon-static" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M6 6.5h1M9 6.5h1M7 13h10M7 16h6"/></symbol>
+      <symbol id="icon-container" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7zM3 7l9 5 9-5M12 12v10M7.5 4.5l9 5v4"/></symbol>
+      <symbol id="icon-functions" viewBox="0 0 24 24"><path d="m14 2-9 12h6l-1 8 9-12h-6z"/></symbol>
+      <symbol id="icon-kubernetes" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7zM12 8v-6M8 14l-5 3M16 14l5 3"/><circle cx="12" cy="12" r="4"/></symbol>
+      <symbol id="icon-model" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1"/><path d="M10 6V2M14 6V2M10 22v-4M14 22v-4M2 10h4M2 14h4M18 10h4M18 14h4M10 10h4v4h-4z"/></symbol>
+      <symbol id="icon-vm" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="13" rx="1"/><path d="M8 21h8M12 16v5M7 7h10v5H7z"/></symbol>
+      <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+      <symbol id="icon-external" viewBox="0 0 24 24"><path d="M14 3h7v7M21 3 10 14M10 3H3v18h18v-7"/></symbol>
+      <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z"/></symbol>
+      <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 1v2M12 21v2M1 12h2M21 12h2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></symbol>
+    </svg>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="./#assessment" aria-label="Azure Compute Navigator home">
+          <span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#icon-map"/></svg></span>
+          <span class="brand-copy"><strong>Azure Compute Navigator</strong><span>Architecture decision workbench</span></span>
+        </a>
+        <nav class="header-links" aria-label="Project links">
+          <a id="article-link" href="./article/choosing-azure-compute.html"><span class="desktop-label">Companion article</span><span class="mobile-label">Article</span> <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
+          <a id="repository-link" href="#" hidden>Source <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+            <svg class="icon theme-moon" aria-hidden="true"><use href="#icon-moon"/></svg>
+            <svg class="icon theme-sun" aria-hidden="true"><use href="#icon-sun"/></svg>
+            <span id="theme-label">Dark</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="page-intro" aria-labelledby="page-title">
+        <div>
+          <h1 id="page-title">Find the right Azure hosting option</h1>
+          <p>Start with the application and its constraints. Keep compute, database, and migration decisions distinct.</p>
+        </div>
+        <div class="intro-meta"><span>Adaptive workload assessment</span><span>VMs only when requirements justify them</span></div>
+      </section>
+
+      <section class="workspace" aria-label="Azure hosting guide">
+        <div class="workspace-navigation">
+          <div class="mode-tabs" role="tablist" aria-label="Choose how to explore">
+            <button id="tab-assessment" class="mode-tab is-active" role="tab" aria-selected="true" aria-controls="assessment" data-mode="assessment">
+              <svg class="icon" aria-hidden="true"><use href="#icon-assess"/></svg><span>Find My Hosting Options</span>
+            </button>
+            <button id="tab-explorer" class="mode-tab" role="tab" aria-selected="false" aria-controls="explorer" data-mode="explorer" tabindex="-1">
+              <svg class="icon" aria-hidden="true"><use href="#icon-map"/></svg><span>Explore Azure Services</span>
+            </button>
+          </div>
+          <span class="workspace-label">Decision workspace</span>
+        </div>
+
+        <section id="explorer" class="mode-panel" role="tabpanel" aria-labelledby="tab-explorer">
+          <div class="explorer-layout">
+            <div class="map-workspace">
+              <div class="panel-toolbar">
+                <div><h2>Explore the architecture paths</h2><p>Select a requirement, then inspect a service.</p></div>
+                <button class="button button-quiet path-card" type="button" data-path="all" aria-pressed="false">All paths</button>
+              </div>
+              <div class="architecture-map" id="architecture-map">
+                <svg id="map-connections" class="map-connections" aria-hidden="true"></svg>
+                <div class="requirements-column">
+                  <h3 class="column-label">Workload requirement</h3>
+                  <div class="path-list">
+                    <button class="path-card is-selected" type="button" data-path="web" aria-pressed="true" aria-controls="service-grid path-explanation">
+                      <svg class="icon" aria-hidden="true"><use href="#icon-web"/></svg>
+                      <span class="path-copy"><strong>Web app or API</strong><small>Frontend &amp; HTTP services</small></span>
+                    </button>
+                    <button class="path-card" type="button" data-path="events" aria-pressed="false" aria-controls="service-grid path-explanation">
+                      <svg class="icon" aria-hidden="true"><use href="#icon-functions"/></svg>
+                      <span class="path-copy"><strong>Workers &amp; events</strong><small>Queues, schedules &amp; jobs</small></span>
+                    </button>
+                    <button class="path-card" type="button" data-path="kubernetes" aria-pressed="false" aria-controls="service-grid path-explanation">
+                      <svg class="icon" aria-hidden="true"><use href="#icon-kubernetes"/></svg>
+                      <span class="path-copy"><strong>Kubernetes</strong><small>Direct API &amp; cluster needs</small></span>
+                    </button>
+                    <button class="path-card" type="button" data-path="model" aria-pressed="false" aria-controls="service-grid path-explanation">
+                      <svg class="icon" aria-hidden="true"><use href="#icon-model"/></svg>
+                      <span class="path-copy"><strong>AI &amp; models</strong><small>Call an API or host a model</small></span>
+                    </button>
+                  </div>
+                </div>
+                <div class="services-column">
+                  <h3 class="column-label">Services to consider <span id="path-count">3 of 6</span></h3>
+                  <div id="service-grid" class="service-grid" aria-label="Azure service options"></div>
+                </div>
+              </div>
+              <div class="path-note">
+                <span class="note-label" id="path-name">Web app or API</span>
+                <p id="path-explanation"></p>
+              </div>
+              <details class="comparison">
+                <summary>Compare operating models <span>Deployment &amp; responsibility</span></summary>
+                <div id="service-comparison"></div>
+              </details>
+              <p class="map-key"><span class="connection-key" aria-hidden="true"></span>Connected services are options to investigate, not automatic recommendations.</p>
+            </div>
+
+            <aside id="service-context" class="context-panel" aria-labelledby="service-detail-title">
+              <div class="context-toolbar"><span class="column-label">Service brief</span><button id="back-to-map" class="text-button mobile-context-link" type="button">Back to map ↑</button></div>
+              <div id="service-detail"></div>
+            </aside>
+          </div>
+          <p id="explorer-status" class="visually-hidden" role="status"></p>
+        </section>
+
+        <section id="assessment" class="mode-panel" role="tabpanel" aria-labelledby="tab-assessment" hidden>
+          <div class="assessment-layout">
+            <div class="assessment-main">
+              <div id="wizard" class="wizard">
+                <div class="wizard-topline">
+                  <button id="wizard-back-to-explorer" class="text-button" type="button">← Explore Azure Services</button>
+                  <button id="wizard-restart" class="text-button" type="button">Start over</button>
+                </div>
+                <div class="progress-wrap">
+                  <div class="progress-meta"><span id="step-count">Step 1 of 2</span><span id="step-topic">Project context</span></div>
+                    <div class="progress-track" role="progressbar" aria-label="Assessment progress" aria-valuemin="1" aria-valuemax="2" aria-valuenow="1"><span id="progress-fill"></span></div>
+                  <nav class="step-nav" id="step-nav" aria-label="Assessment steps"></nav>
+                </div>
+                <form id="assessment-form">
+                  <fieldset class="question-fieldset" aria-describedby="question-help">
+                    <legend id="question-title" tabindex="-1"></legend>
+                    <p id="question-help" class="question-help"></p>
+                    <div id="question-options" class="option-grid"></div>
+                  </fieldset>
+                  <div class="wizard-actions">
+                    <button id="previous-step" class="button button-secondary" type="button" disabled>← Previous</button>
+                    <button id="next-step" class="button button-primary" type="button" disabled>Continue <span aria-hidden="true">→</span></button>
+                  </div>
+                </form>
+              </div>
+
+              <section id="assessment-results" class="results" aria-labelledby="results-title" hidden>
+                <div class="results-topline">
+                  <div><p class="section-label">Assessment outcome</p><h2 id="results-title" tabindex="-1">A starting point, with the reasoning</h2></div>
+                  <span id="result-status" class="status-badge"></span>
+                </div>
+                <div id="result-content"></div>
+                <div class="result-actions">
+                  <button id="edit-answers" class="button button-primary" type="button">Edit answers</button>
+                  <button id="copy-summary" class="button button-secondary" type="button">Copy assessment summary</button>
+                  <button id="restart-results" class="text-button" type="button">New assessment</button>
+                </div>
+                <p id="copy-status" class="copy-status" role="status"></p>
+              </section>
+              <p class="guide-caveat"><strong>Validate before implementation.</strong> Region, plan, quotas, networking, security, availability, cost, and service limits can change what is viable. This is educational guidance, not a production design approval.</p>
+            </div>
+            <aside class="assessment-context context-panel" aria-labelledby="requirements-title">
+              <div class="context-toolbar"><h2 id="requirements-title">Your requirements</h2>              <span id="answered-count">0 / 2</span></div>
+              <p class="context-intro">Your working brief. Select an answer to revisit it.</p>
+              <div id="answer-summary" class="answer-summary"></div>
+              <div class="privacy-note"><strong>Local to this browser tab</strong><p>Answers stay in memory. No account, telemetry, or workload data is sent to a service. Choose “Not sure” rather than guessing.</p></div>
+            </aside>
+          </div>
+          <p id="assessment-status" class="visually-hidden" role="status"></p>
+        </section>
+      </section>
+
+      <details class="decision-principles">
+        <summary>Decision principles <span>A few distinctions that change the answer</span></summary>
+        <div class="principle-grid">
+          <p><strong>Compute and databases are separate decisions.</strong> Engine compatibility and network paths do not select an app host.</p>
+          <p><strong>AI is an application pattern.</strong> Calling a managed model API does not mean you host a model.</p>
+          <p><strong>More control brings more work.</strong> Choose Kubernetes or VMs only when their capabilities are requirements.</p>
+        </div>
+      </details>
+    </main>
+
+    <footer class="site-footer">
+      <p>Independent educational guidance; not an official Microsoft tool.</p>
+      <p>Technical information last reviewed <time id="review-date" datetime="2026-10-31">31 October 2026</time></p>
+      <div id="author-attribution" hidden></div>
+      <p><a href="./LICENSE">Code: MIT</a> · <a href="./content-license.html">Original content: CC BY 4.0</a></p>
+    </footer>
+    <p id="theme-status" class="visually-hidden" role="status"></p>
+  </body>
+</html>

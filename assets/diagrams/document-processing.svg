@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="510" viewBox="0 0 820 510" role="img" aria-labelledby="title description">
+  <title id="title">Separate document acceptance from processing</title>
+  <desc id="description">A client uploads through an API. The API stores the file and then enqueues a reference. A worker consumes the reference, reads the stored file, processes it and writes a search index. API and worker scale independently. File storage and enqueueing are not one atomic transaction.</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 8 4 0 8" fill="#0067c0"/></marker></defs>
+  <rect width="820" height="510" rx="4" fill="#f5f6f8"/>
+  <g font-family="Segoe UI, Arial, sans-serif" fill="#20252c">
+    <text x="28" y="38" font-size="22" font-weight="600">Accept quickly. Process independently.</text>
+    <text x="28" y="66" font-size="16" fill="#4a5564">One illustrative architecture; either platform combination can fit.</text>
+    <g fill="#ffffff" stroke="#c6ced8">
+      <rect x="28" y="110" width="160" height="84" rx="3"/>
+      <rect x="290" y="110" width="210" height="84" rx="3"/>
+      <rect x="596" y="110" width="196" height="84" rx="3"/>
+      <rect x="290" y="286" width="210" height="84" rx="3"/>
+      <rect x="596" y="286" width="196" height="84" rx="3"/>
+      <rect x="596" y="423" width="196" height="58" rx="3"/>
+    </g>
+    <g stroke="#0067c0" stroke-width="2" fill="none" marker-end="url(#arrow)">
+      <path d="M188 152h93"/><path d="M500 152h87"/><path d="M395 194v83"/>
+      <path d="M694 194v83"/><path d="M500 328h87"/><path d="M694 370v44"/>
+    </g>
+    <g font-size="18" font-weight="600">
+      <text x="46" y="143">Client</text><text x="308" y="143">Upload API</text><text x="614" y="143">Queue</text>
+      <text x="308" y="319">File storage</text><text x="614" y="319">Worker / job</text><text x="614" y="459">Search index</text>
+    </g>
+    <g font-size="15" fill="#4a5564">
+      <text x="46" y="171">Receives job ID</text><text x="308" y="171">HTTP scaling signal</text><text x="614" y="171">File reference + ID</text>
+      <text x="308" y="347">Durable document</text><text x="614" y="347">Queue scaling signal</text>
+      <text x="208" y="138">Upload</text><text x="514" y="127">2. Enqueue</text><text x="409" y="240">1. Store</text>
+      <text x="705" y="240">Consume</text><text x="514" y="309">Read file</text><text x="705" y="402">Write</text>
+      <text x="28" y="414">Possible hosts:</text>
+      <text x="28" y="440">Container Apps API + worker/job</text>
+      <text x="28" y="467">App Service API + queue-triggered Function</text>
+    </g>
+  </g>
+</svg>
