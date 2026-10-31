@@ -134,6 +134,12 @@ test("the deploy workflow is manual-only and uploads the Node-built public artif
   const workflow = await readFile(join(root, ".github", "workflows", "pages.yml"), "utf8");
   assert.match(workflow, /workflow_dispatch:/);
   assert.doesNotMatch(workflow, /\bpush:|pull_request:|jekyll-build/);
+  assert.match(workflow, /runs-on: ubuntu-24\.04/);
+  assert.match(workflow, /actions\/checkout@v7/);
+  assert.match(workflow, /actions\/setup-node@v7\.1\.0/);
+  assert.match(workflow, /actions\/configure-pages@v6/);
+  assert.match(workflow, /actions\/upload-pages-artifact@v5/);
+  assert.match(workflow, /actions\/deploy-pages@v5\.0\.1/);
   assert.match(workflow, /npm ci --ignore-scripts/);
   assert.match(workflow, /npm run build/);
   assert.match(workflow, /path: \.\/_site/);

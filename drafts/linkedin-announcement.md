@@ -8,4 +8,8 @@ I built the guide to make those decisions easier to explore, with a workload ass
 
 I would welcome technical feedback, especially on scenarios where the trade-offs could be clearer.
 
-Project links will be added after publication.
+Try Azure Compute Navigator: https://preciousajuru.github.io/azure-compute-navigator/
+
+Read the companion article: https://preciousajuru.github.io/azure-compute-navigator/article/choosing-azure-compute.html
+
+Source repository: https://github.com/preciousajuru/azure-compute-navigator

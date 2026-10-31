@@ -2,7 +2,7 @@
 
 **An independent, interactive guide to choosing the right Azure hosting service.**
 
-Created by **Precious Ajuru**. The [public source repository](https://github.com/preciousajuru/azure-compute-navigator) is being prepared for its first release. GitHub Pages deployment is pending verification.
+Created by **Precious Ajuru**. The [public source repository](https://github.com/preciousajuru/azure-compute-navigator) and [live GitHub Pages application](https://preciousajuru.github.io/azure-compute-navigator/) are available.
 
 Azure Compute Navigator helps engineers compare Azure App Service, Azure Container Apps, AKS Automatic, AKS Standard, Azure Functions, and Azure Static Web Apps against an application's real requirements. Azure Virtual Machines appear as a conditional option when guest-OS control is a verified requirement.
 
@@ -75,7 +75,7 @@ Re-run `npm run build` after edits, then refresh. Stop the preview with Ctrl+C. 
 
 ## Companion article
 
-Read the sole, authoritative article in [`article/choosing-azure-compute.md`](article/choosing-azure-compute.md), or open its rendered HTML in the local preview. It is an 8–10 minute guide to App Service, Container Apps, AKS Automatic and Standard, Functions, Static Web Apps and VMs, with four practical scenarios, a WordPress/MariaDB migration example, one comparison table and a genuine application screenshot.
+Read the sole, authoritative article in [`article/choosing-azure-compute.md`](article/choosing-azure-compute.md), or [open its published HTML](https://preciousajuru.github.io/azure-compute-navigator/article/choosing-azure-compute.html). It is an 8–10 minute guide to App Service, Container Apps, AKS Automatic and Standard, Functions, Static Web Apps and VMs, with four practical scenarios, a WordPress/MariaDB migration example, one comparison table and a genuine application screenshot.
 
 The Markdown is also the portable Medium/personal-website copy: it contains absolute application and screenshot links, and needs no project-specific rendering to read. The static build maps those canonical URLs to local application and asset paths, so the website renders the same article source. It adds semantic HTML, contents navigation, stable heading anchors, a scrollable comparison table, light/dark themes and a full-size image link. Build validation checks every service's article target, including Virtual Machines.
 
@@ -142,18 +142,16 @@ Generated HTML preserves that boundary: MIT presentation code surrounding CC BY 
 
 ## GitHub Pages deployment
 
-The public repository is [`preciousajuru/azure-compute-navigator`](https://github.com/preciousajuru/azure-compute-navigator), owned by the verified GitHub account `preciousajuru`. Its first project commit and Pages deployment are pending.
+The [public repository](https://github.com/preciousajuru/azure-compute-navigator) is owned by the verified GitHub account `preciousajuru`. The [live application](https://preciousajuru.github.io/azure-compute-navigator/) and [published companion article](https://preciousajuru.github.io/azure-compute-navigator/article/choosing-azure-compute.html) are served from GitHub Pages.
 
 The deployment uses a **Node static build**, not Jekyll. CI runs a clean dependency installation, syntax checks, automated tests and the same build used locally. The build copies only public assets, renders the article, source register and content licence, and validates local links and service anchors. Documentation drafts, tests and dependencies are not uploaded.
 
-After Pages is configured to use **GitHub Actions**, manually run **Deploy static site to GitHub Pages** from `main`. The publishing workflow is intentionally `workflow_dispatch`-only: a push does not publish. It uploads `_site` as the Pages artifact, then deploys in a separate `github-pages` environment job using GitHub's built-in token/OIDC permissions. No personal token or Azure credential is required.
+Pages uses **GitHub Actions**. The **Deploy static site to GitHub Pages** workflow is intentionally manual-only (`workflow_dispatch`): a push does not publish. It uploads `_site` as the Pages artifact, then deploys in a separate `github-pages` environment job using GitHub's built-in token/OIDC permissions. No personal token or Azure credential is required.
 
-The expected Pages route is `https://preciousajuru.github.io/azure-compute-navigator/`; verify the workflow's returned URL and the live application, article, images, themes, deep links and assessment before treating it as published.
+The deployment workflow, public homepage, article, screenshot and production browser flows have been verified. See [`docs/publishing-checklist.md`](docs/publishing-checklist.md) for the portable article and external-image details.
 
 ## Project links
 
 - Public source repository: https://github.com/preciousajuru/azure-compute-navigator
-- GitHub Pages application: pending workflow deployment and live verification.
-- Companion article: pending the same Pages deployment and live verification.
-
-The Pages configuration and repository URL in `src/data/config.js` must be checked against the live workflow result before release is reported complete.
+- Published application: https://preciousajuru.github.io/azure-compute-navigator/
+- Published article: https://preciousajuru.github.io/azure-compute-navigator/article/choosing-azure-compute.html

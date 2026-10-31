@@ -11,5 +11,6 @@ This is publishing guidance, not a second article. The authoritative copy is [`.
 - Screenshot URL: https://preciousajuru.github.io/azure-compute-navigator/assets/screenshots/azure-compute-navigator-assessment.png
 - Alternative text: “Azure Compute Navigator assessment for an existing WordPress site using MariaDB. The result presents App Service as a compute starting point and lists database and file checks separately.”
 - Licence: CC BY 4.0; retain attribution to Precious Ajuru and link to https://creativecommons.org/licenses/by/4.0/.
+- Public application, article and screenshot URLs were verified to return successfully on 31 October 2026.
 
-Before sharing the link, verify that the application, article and screenshot URLs load publicly. If Medium does not import the remote image, upload the original PNG from the listed source path and retain its alternative text. Do not edit the article wording in an external publishing copy; apply any future editorial changes to the authoritative Markdown file first.
+If Medium does not import the remote image, upload the original PNG from the listed source path and retain its alternative text. Do not edit the article wording in an external publishing copy; apply any future editorial changes to the authoritative Markdown file first. The article has not been posted to Medium or a personal website.
